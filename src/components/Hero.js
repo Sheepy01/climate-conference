@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
-    <section 
+    <section
       className="relative h-screen flex items-center justify-center bg-cover bg-center"
       style={{
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/hero-bg-2.jpg')`
@@ -11,12 +11,20 @@ const Hero = () => {
     >
       <div className="text-center text-white px-4">
         <motion.h1 
+          className="text-2xl md:text-3xl font-normal mb-4"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+         First International Conference <br></br> on
+        </motion.h1>
+        <motion.h1 
           className="text-4xl md:text-6xl font-bold mb-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          Climate Change Crossroads
+         Climate Change Crossroads
         </motion.h1>
         <motion.p 
           className="text-xl md:text-2xl mb-8"

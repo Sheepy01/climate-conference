@@ -4,32 +4,32 @@ import { motion } from 'framer-motion';
 const Speakers = () => {
   const speakers = [
     {
-      name: "Dr. Jane Smith",
-      title: "Climate Scientist",
+      name: "Dr. Mrutyunjay Mohapatra",
+      title: "Director General of Meteorology, India Meteorological Department, Permanent Representative of India to WMO, 3rd Vice President of WMO  for extreme weather theme",
       image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
     },
     {
-      name: "Prof. John Davis",
-      title: "Environmental Economist",
+      name: "Dr S. C. Bhan",
+      title: "Ex-Scientist G IMD and Head of Agrometeorology for agriculture theme",
       image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
     },
     {
-      name: "Dr. Maria Rodriguez",
+      name: "Dr. X",
       title: "Public Health Expert",
       image: "https://images.unsplash.com/photo-1551836026-d5c8c5ab235e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
     },
     {
-      name: "Prof. James Wilson",
+      name: "Prof. Y",
       title: "Agricultural Specialist",
       image: "https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
     },
     {
-      name: "Dr. Sarah Johnson",
+      name: "Dr. Z",
       title: "Biodiversity Researcher",
       image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
     },
     {
-      name: "Prof. Michael Brown",
+      name: "Prof. M",
       title: "Policy Advisor",
       image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
     }
@@ -66,7 +66,7 @@ const Speakers = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          Featured Speakers
+          Featured Keynote Speakers
         </motion.h2>
         <motion.p 
           className="text-center text-gray-600 mb-12 max-w-3xl mx-auto"

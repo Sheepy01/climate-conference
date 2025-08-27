@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
-  faLeaf, 
-  faHeart,
   faGlobe
 } from '@fortawesome/free-solid-svg-icons';
 
