@@ -5,27 +5,15 @@ const Sponsors = () => {
   const sponsors = [
     {
       name: "Sponsor 1",
-      logo: "images/sponsors/sponsor1.png"
+      logo: "images/sponsors/adri_csec.jpg"
     },
     {
       name: "Sponsor 2",
-      logo: "images/sponsors/sponsor2.png"
+      logo: "images/sponsors/ims.jpeg"
     },
     {
       name: "Sponsor 3",
-      logo: "images/sponsors/sponsor3.png"
-    },
-    {
-      name: "Sponsor 4",
-      logo: "images/sponsors/sponsor4.png"
-    },
-    {
-      name: "Sponsor 5",
-      logo: "images/sponsors/sponsor5.png"
-    },
-    {
-      name: "Sponsor 6",
-      logo: "images/sponsors/sponsor6.png"
+      logo: "images/sponsors/mcs.jpg"
     }
   ];
 
@@ -89,7 +77,7 @@ const Sponsors = () => {
               <img 
                 src={sponsor.logo} 
                 alt={sponsor.name}
-                className="max-w-full max-h-16 object-contain"
+                className="max-w-full max-h-32 object-contain"
               />
             </motion.div>
           ))}

@@ -6,33 +6,48 @@ const Speakers = () => {
     {
       name: "Dr. Mrutyunjay Mohapatra",
       title: "Director General of Meteorology, India Meteorological Department, Permanent Representative of India to WMO, 3rd Vice President of WMO  for extreme weather theme",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      image: "/images/keynote_speakers/dr_mrityunjay_imd.jpg"
     },
     {
-      name: "Dr S. C. Bhan",
+      name: "Dr. S. C. Bhan",
       title: "Ex-Scientist G IMD and Head of Agrometeorology for agriculture theme",
-      image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      image: "/images/keynote_speakers/dr_sc_bhan.jpeg"
     },
     {
-      name: "Dr. X",
-      title: "Public Health Expert",
-      image: "https://images.unsplash.com/photo-1551836026-d5c8c5ab235e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      name: "Prof. David Polya",
+      title: "University of Manchester",
+      image: "/images/keynote_speakers/prof_david_polya.png"
     },
     {
-      name: "Prof. Y",
-      title: "Agricultural Specialist",
-      image: "https://images.unsplash.com/photo-1552058544-f2b08422138a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      name: "Prof. Prosun Bhattacharya",
+      title: "Stockholm University",
+      image: "/images/keynote_speakers/prof_prosun.webp"
     },
     {
-      name: "Dr. Z",
-      title: "Biodiversity Researcher",
-      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+      name: "Dr. Meera Dhuriya",
+      title: "NCDC - ICMR",
+      image: "/images/keynote_speakers/dr_meera.jpg"
     },
     {
-      name: "Prof. M",
-      title: "Policy Advisor",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
-    }
+      name: "Dr. Harpreet Singh",
+      title: "ICMR, Scientist E & Head",
+      image: "/images/keynote_speakers/dr_harpreet_singh.jpg"
+    },
+    {
+      name: "Prof. Alok Sinha",
+      title: "IIT ISM, HOD, Environmental Science and Engineering",
+      image: "/images/keynote_speakers/dr_alok_sinha.jpg"
+    },
+    {
+      name: "Dr. Anindita Mehta",
+      title: "CEO, CERC, Trustee, Consumer International",
+      image: "/images/keynote_speakers/dr_alok_sinha.jpg"
+    },
+    {
+      name: "Dr. Nupur Bose",
+      title: "Ex Professor, A N College, Patna",
+      image: "/images/keynote_speakers/dr_alok_sinha.jpg"
+    },
   ];
 
   const containerVariants = {
@@ -79,7 +94,7 @@ const Speakers = () => {
         </motion.p>
 
         <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -97,6 +112,7 @@ const Speakers = () => {
                   src={speaker.image} 
                   alt={speaker.name}
                   className="w-full h-full object-cover"
+                  style={{ objectPosition: "50% 25%" }}
                 />
               </div>
               <div className="p-6">

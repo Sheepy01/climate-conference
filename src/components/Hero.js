@@ -6,7 +6,7 @@ const Hero = () => {
     <section
       className="relative h-screen flex items-center justify-center bg-cover bg-center"
       style={{
-        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/hero-bg-2.jpg')`
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/hero-bg-3.png')`
       }}
     >
       <div className="text-center text-white px-4">
@@ -42,6 +42,27 @@ const Hero = () => {
         >
           Explore Themes
         </motion.button>
+
+        {/* Added horizontal line and date/venue text */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          <hr className="w-80 h-1 mx-auto mt-5 bg-green-500 border-0 rounded" />
+          <p className="text-lg md:text-xl font-medium mt-5">
+            Apr 2 - 3, 2026 (Venue: Patna, Bihar, India)
+          </p>
+        </motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+        >
+          <p className="text-lg md:text-xl font-normal mt-20">
+            Addressing the critical intersections between one health, climate change, biodiversity, and agriculture.
+          </p>
+        </motion.div>
       </div>
       
       <motion.div 
