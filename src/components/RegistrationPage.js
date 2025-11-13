@@ -111,50 +111,105 @@ const RegistrationPage = () => {
             {/* Fees Tab Content */}
             {activeTab === 'fees' && (
               <div className="space-y-8">
-                {/* Exchange Rate Info */}
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <h3 className="font-semibold text-blue-800 text-lg">💱 Current Exchange Rate</h3>
-                      <p className="text-blue-600">
-                        {exchangeRate ? `1 USD = ₹${exchangeRate.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : 'Loading current rates...'}
-                      </p>
+                {/* Header Section */}
+                <div className="text-center mb-8">
+                  <h2 className="text-3xl font-bold text-gray-800 mb-3">Registration Fee Structure</h2>
+                  <p className="text-gray-600 max-w-2xl mx-auto">
+                    Complete pricing details for all participant categories. Fees include access to all technical sessions, conference materials, meals, and certification.
+                  </p>
+                </div>
+
+                {/* Exchange Rate Banner */}
+                <div className="bg-gradient-to-r from-blue-800 to-blue-900 rounded-xl p-6 text-white shadow-lg">
+                  <div className="flex flex-col md:flex-row items-center justify-between">
+                    <div className="flex items-center mb-4 md:mb-0">
+                      <div className="bg-white bg-opacity-20 p-3 rounded-lg mr-4">
+                        <span className="text-2xl">💱</span>
+                      </div>
+                      <div>
+                        <h3 className="font-bold text-lg">Live Exchange Rate</h3>
+                        <p className="text-blue-100">
+                          {exchangeRate ? `1 USD = ₹${exchangeRate.toLocaleString('en-IN', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}` : 'Fetching current rates...'}
+                        </p>
+                      </div>
                     </div>
-                    <div className="text-right">
-                      <p className="text-sm text-blue-600">Rates update automatically</p>
-                      <p className="text-xs text-blue-500">Source: International Forex Markets</p>
+                    <div className="text-center md:text-right">
+                      <div className="bg-white bg-opacity-20 px-3 py-1 rounded-full text-sm inline-block">
+                        🔄 Auto-updating
+                      </div>
+                      <p className="text-blue-100 text-sm mt-1">Rates sourced from international forex markets</p>
                     </div>
                   </div>
                 </div>
 
-                {/* Registration Fees Table */}
-                <div>
-                  <h2 className="text-2xl font-bold text-gray-800 mb-6">Registration Fee Structure</h2>
-                  <div className="overflow-hidden rounded-lg border border-gray-200">
-                    <table className="min-w-full divide-y divide-gray-200">
-                      <thead className="bg-green-600">
+                {/* Main Fees Table */}
+                <div className="bg-white rounded-xl border border-gray-200 shadow-sm overflow-hidden">
+                  <div className="bg-gradient-to-r from-green-600 to-green-700 px-6 py-4">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-white font-bold text-lg">Conference Registration Fees</h3>
+                      <div className="bg-green-500 bg-opacity-30 px-3 py-1 rounded-full text-green-100 text-sm">
+                        All prices inclusive of GST
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="overflow-x-auto">
+                    <table className="w-full">
+                      <thead className="bg-gray-50">
                         <tr>
-                          <th className="px-6 py-4 text-left text-sm font-semibold text-white">Participant Category</th>
-                          <th className="px-6 py-4 text-center text-sm font-semibold text-white">Description</th>
-                          <th className="px-6 py-4 text-center text-sm font-semibold text-white">Fees (INR)</th>
-                          <th className="px-6 py-4 text-center text-sm font-semibold text-white">Fees (USD)</th>
+                          <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">
+                            Participant Category
+                          </th>
+                          <th className="px-6 py-4 text-left text-sm font-semibold text-gray-700 uppercase tracking-wider">
+                            Eligibility & Description
+                          </th>
+                          <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700 uppercase tracking-wider">
+                            Indian Rupee (INR)
+                          </th>
+                          <th className="px-6 py-4 text-center text-sm font-semibold text-gray-700 uppercase tracking-wider">
+                            US Dollar (USD)
+                          </th>
                         </tr>
                       </thead>
-                      <tbody className="bg-white divide-y divide-gray-200">
+                      <tbody className="divide-y divide-gray-200">
                         {registrationData.map((item, index) => (
-                          <tr key={index} className="hover:bg-gray-50 transition-colors">
-                            <td className="px-6 py-4 whitespace-nowrap">
-                              <div className="font-semibold text-gray-900">{item.category}</div>
+                          <tr 
+                            key={index} 
+                            className="hover:bg-gray-50 transition-all duration-200 group"
+                          >
+                            <td className="px-6 py-5 whitespace-nowrap">
+                              <div className="flex items-center">
+                                <div className={`w-3 h-3 rounded-full mr-3 ${
+                                  item.category === 'Student' ? 'bg-blue-500' :
+                                  item.category === 'Academicians' ? 'bg-green-500' :
+                                  item.category === 'Industry Professionals' ? 'bg-purple-500' :
+                                  'bg-orange-500'
+                                }`}></div>
+                                <div>
+                                  <div className="font-semibold text-gray-900 text-lg">{item.category}</div>
+                                </div>
+                              </div>
                             </td>
-                            <td className="px-6 py-4">
-                              <div className="text-sm text-gray-600 text-center">{item.description}</div>
+                            <td className="px-6 py-5">
+                              <div className="text-sm text-gray-600 max-w-xs">{item.description}</div>
+                              {item.category === 'Student' && (
+                                <div className="mt-1">
+                                  <span className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">
+                                    Valid ID Required
+                                  </span>
+                                </div>
+                              )}
                             </td>
-                            <td className="px-6 py-4 whitespace-nowrap text-center">
-                              <div className="font-semibold text-gray-900">₹{item.inr.toLocaleString('en-IN')}</div>
+                            <td className="px-6 py-5 whitespace-nowrap text-center">
+                              <div className="flex flex-col items-center">
+                                <span className="font-bold text-gray-900 text-lg">₹{item.inr.toLocaleString('en-IN')}</span>
+                                <span className="text-xs text-gray-500 mt-1">Indian Participants</span>
+                              </div>
                             </td>
-                            <td className="px-6 py-4 whitespace-nowrap text-center">
-                              <div className="font-semibold text-green-700">
-                                ${calculateUSD(item.inr)}
+                            <td className="px-6 py-5 whitespace-nowrap text-center">
+                              <div className="flex flex-col items-center">
+                                <span className="font-bold text-green-700 text-lg">${calculateUSD(item.inr)}</span>
+                                <span className="text-xs text-gray-500 mt-1">International Participants</span>
                               </div>
                             </td>
                           </tr>
@@ -164,26 +219,102 @@ const RegistrationPage = () => {
                   </div>
                 </div>
 
-                {/* What's Included */}
-                <div className="bg-green-50 border border-green-200 rounded-lg p-6">
-                  <h3 className="font-semibold text-green-800 text-lg mb-4">🎁 Registration Includes</h3>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                      <span className="text-green-700">Conference Kit & Proceedings</span>
+                {/* Benefits & Inclusions */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  {/* What's Included */}
+                  <div className="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-xl p-6">
+                    <div className="flex items-center mb-4">
+                      <div className="bg-green-100 p-2 rounded-lg mr-3">
+                        <span className="text-green-600 text-xl">🎁</span>
+                      </div>
+                      <h3 className="font-bold text-green-800 text-lg">Registration Benefits</h3>
                     </div>
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                      <span className="text-green-700">Lunch & Refreshments (Both Days)</span>
+                    <div className="space-y-3">
+                      {[
+                        'Complete Conference Kit & Proceedings',
+                        'Lunch & Refreshments (Both Conference Days)',
+                        'Access to All Technical Sessions & Keynotes',
+                        'Digital Certificate of Participation',
+                        'Conference Dinner & Networking Events',
+                        'Abstract Book & Conference Materials'
+                      ].map((benefit, index) => (
+                        <div key={index} className="flex items-center">
+                          <div className="w-2 h-2 bg-green-400 rounded-full mr-3"></div>
+                          <span className="text-green-700 text-sm">{benefit}</span>
+                        </div>
+                      ))}
                     </div>
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                      <span className="text-green-700">Access to All Technical Sessions</span>
+                  </div>
+
+                  {/* Important Notes */}
+                  <div className="bg-gradient-to-br from-blue-50 to-cyan-50 border border-blue-200 rounded-xl p-6">
+                    <div className="flex items-center mb-4">
+                      <div className="bg-blue-100 p-2 rounded-lg mr-3">
+                        <span className="text-blue-600 text-xl">📋</span>
+                      </div>
+                      <h3 className="font-bold text-blue-800 text-lg">Registration Notes</h3>
                     </div>
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                      <span className="text-green-700">Conference Certificate</span>
+                    <div className="space-y-3">
+                      {[
+                        'Student registration requires valid student ID card',
+                        'Co-author registration for additional authors only',
+                        'Fees include 18% GST as applicable',
+                        'Accommodation not included in registration',
+                        'Early bird discounts may apply (check updates)',
+                        'Group registrations available (contact organizers)'
+                      ].map((note, index) => (
+                        <div key={index} className="flex items-start">
+                          <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 mt-2 flex-shrink-0"></div>
+                          <span className="text-blue-700 text-sm leading-relaxed">{note}</span>
+                        </div>
+                      ))}
                     </div>
+                  </div>
+                </div>
+
+                {/* Payment Information */}
+                <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-purple-100 p-2 rounded-lg mr-3">
+                      <span className="text-purple-600 text-xl">💳</span>
+                    </div>
+                    <h3 className="font-bold text-gray-800 text-lg">Accepted Payment Methods</h3>
+                  </div>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    {[
+                      { method: 'Bank Transfer', desc: 'Domestic & International', icon: '🏦' },
+                      { method: 'Credit Card', desc: 'Visa/Mastercard/Amex', icon: '💳' },
+                      { method: 'UPI Payment', desc: 'Indian Participants', icon: '📱' },
+                      { method: 'Demand Draft', desc: 'Payable to ADRI', icon: '📄' }
+                    ].map((payment, index) => (
+                      <div key={index} className="text-center p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                        <div className="text-2xl mb-2">{payment.icon}</div>
+                        <div className="font-semibold text-gray-800">{payment.method}</div>
+                        <div className="text-xs text-gray-600 mt-1">{payment.desc}</div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Call to Action */}
+                <div className="bg-gradient-to-r from-green-600 to-green-700 rounded-xl p-8 text-center text-white shadow-lg">
+                  <h3 className="text-2xl font-bold mb-3">Ready to Secure Your Spot?</h3>
+                  <p className="text-green-100 mb-6 max-w-2xl mx-auto">
+                    Join leading researchers, academicians, and industry professionals at this premier international conference on climate change and sustainability.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button 
+                      className="bg-white text-green-700 hover:bg-gray-100 font-bold py-3 px-8 rounded-lg transition-all duration-200 transform hover:scale-105"
+                      onClick={() => alert('Registration portal opening soon!')}
+                    >
+                      Register Now ›
+                    </button>
+                    <button 
+                      className="border-2 border-white text-white hover:bg-white hover:text-green-700 font-bold py-3 px-8 rounded-lg transition-all duration-200"
+                      onClick={() => setActiveTab('contact')}
+                    >
+                      Contact Organizers
+                    </button>
                   </div>
                 </div>
               </div>
