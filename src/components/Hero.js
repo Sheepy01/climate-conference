@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import RegistrationFAB from './RegistrationFAB';
 
 const Hero = () => {
   const [timeLeft, setTimeLeft] = useState({
@@ -90,7 +91,7 @@ const Hero = () => {
           ))}
         </div>
       </div>
-      <div className="text-center text-white px-4 w-full max-w-6xl mx-auto max-sm:mt-10 sm:mt-10 md:mt-16 lg:mt-14">
+      <div className="text-center text-white px-4 w-full max-w-6xl mx-auto max-sm:mt-10 sm:mt-10 md:mt-16 lg:mt-14 relative z-20">
         {/* Main Conference Title */}
         <div className="mb-6">
           <motion.h1 
@@ -195,10 +196,12 @@ const Hero = () => {
           transition={{ duration: 0.8, delay: 1.0 }}
         >
           <p className="text-base md:text-lg font-light leading-relaxed text-gray-200 max-sm:hidden">
-            Addressing the critical intersections between one health, climate change, biodiversity, and agriculture through international collaboration and scientific discourse.
+            Addressing the critical intersections between one health, animal health, climate change, biodiversity, agriculture, and the role of AI and machine learning through international collaboration and scientific discourse.
           </p>
         </motion.div>
       </div>
+
+      <RegistrationFAB />
       
       {/* Scroll Indicator */}
       <motion.div 

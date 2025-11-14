@@ -8,6 +8,8 @@ import Sponsors from './components/Sponsors';
 import Footer from './components/Footer';
 import PlaceholderPage from './components/PlaceholderPage';
 import RegistrationPage from './components/RegistrationPage';
+import KeynoteSpeakers from './components/KeynoteSpeakers';
+import InvitedSpeakers from './components/InvitedSpeakers';
 
 function App() {
   return (
@@ -33,7 +35,9 @@ function App() {
           <Route path="/program-flyer" element={<PlaceholderPage title="Program Flyer" />} />
           <Route path="/technical-program" element={<PlaceholderPage title="Technical Program" />} />
           <Route path="/proceedings" element={<PlaceholderPage title="Conference Proceedings" />} />
-          <Route path="/keynote-speakers" element={<PlaceholderPage title="Keynote Speakers" />} />
+          {/* <Route path="/keynote-speakers" element={<PlaceholderPage title="Keynote Speakers" />} /> */}
+          <Route path="/keynote-speakers" element={<KeynoteSpeakers />} />
+          <Route path="/invited-speakers" element={<InvitedSpeakers />} />
           <Route path="/special-sessions" element={<PlaceholderPage title="Special Sessions" />} />
           <Route path="/travel-venue" element={<PlaceholderPage title="Travel and Venue" />} />
           <Route path="/sponsor-adri-csec" element={<PlaceholderPage title="ADRI CSEC" />} />

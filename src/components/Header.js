@@ -79,7 +79,7 @@ const Header = () => {
       { label: "Technical program", link: "/technical-program", external: false },
       { label: "Conference proceedings", link: "/proceedings", external: false },
       { label: "Keynote speakers", link: "/keynote-speakers", external: false },
-      { label: "Special Sessions", link: "/special-sessions", external: false }
+      { label: "Invited Speakers", link: "/invited-speakers", external: false }
     ],
     "Travel and Venue": [
       { label: "Check travel and venue details", link: "/travel-venue", external: false }

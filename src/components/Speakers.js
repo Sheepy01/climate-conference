@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const Speakers = () => {
-  const speakers = [
+  const keynoteSpeakers = [
     {
       name: "Dr. Mrutyunjay Mohapatra",
       title: "Director General of Meteorology, India Meteorological Department, Permanent Representative of India to WMO, 3rd Vice President of WMO  for extreme weather theme",
@@ -38,6 +38,9 @@ const Speakers = () => {
       title: "IIT ISM, HOD, Environmental Science and Engineering",
       image: "/images/keynote_speakers/dr_alok_sinha.jpg"
     },
+  ];
+
+  const invitedSpeakers = [
     {
       name: "Dr. Anindita Mehta",
       title: "CEO, CERC, Trustee, Consumer International",
@@ -48,7 +51,7 @@ const Speakers = () => {
       title: "Ex Professor, A.N. College, Patna",
       image: "/images/keynote_speakers/dr_nupur_bose.png"
     },
-  ];
+  ]
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -72,7 +75,7 @@ const Speakers = () => {
   };
 
   return (
-    <section id="speakers" className="py-20 bg-white">
+    <section id="speakers" className="py-20 bg-white flex flex-col gap-14">
       <div className="container mx-auto px-6">
         <motion.h2 
           className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4"
@@ -90,7 +93,7 @@ const Speakers = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          Experts from various fields coming together to address climate change challenges
+          Keynote speakers from various fields coming together to address climate change challenges
         </motion.p>
 
         <motion.div 
@@ -100,7 +103,57 @@ const Speakers = () => {
           whileInView="visible"
           viewport={{ once: true }}
         >
-          {speakers.map((speaker, index) => (
+          {keynoteSpeakers.map((speaker, index) => (
+            <motion.div
+              key={index}
+              className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+              variants={itemVariants}
+              whileHover={{ y: -5, transition: { duration: 0.2 } }}
+            >
+              <div className="h-56 overflow-hidden">
+                <img 
+                  src={speaker.image} 
+                  alt={speaker.name}
+                  className="w-full h-full object-cover"
+                  style={{ objectPosition: "50% 25%" }}
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-semibold text-gray-800 mb-1">{speaker.name}</h3>
+                <p className="text-gray-600">{speaker.title}</p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+      <div className="container mx-auto px-6">
+        <motion.h2 
+          className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
+          Invited Speakers
+        </motion.h2>
+        <motion.p 
+          className="text-center text-gray-600 mb-12 max-w-3xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          Speakers from various fields coming together to address climate change challenges
+        </motion.p>
+
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-8"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+        >
+          {invitedSpeakers.map((speaker, index) => (
             <motion.div
               key={index}
               className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
