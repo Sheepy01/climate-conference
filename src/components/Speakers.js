@@ -41,12 +41,12 @@ const Speakers = () => {
     {
       name: "Dr. Anindita Mehta",
       title: "CEO, CERC, Trustee, Consumer International",
-      image: "/images/keynote_speakers/dr_alok_sinha.jpg"
+      image: "/images/keynote_speakers/dr_anindita_mehta.jpg"
     },
     {
       name: "Dr. Nupur Bose",
-      title: "Ex Professor, A N College, Patna",
-      image: "/images/keynote_speakers/dr_alok_sinha.jpg"
+      title: "Ex Professor, A.N. College, Patna",
+      image: "/images/keynote_speakers/dr_nupur_bose.png"
     },
   ];
 

@@ -48,7 +48,7 @@ const Footer = () => {
           >
             <h3 className="text-xl font-semibold mb-4">Climate Change Crossroads</h3>
             <p className="text-gray-400">
-              Addressing the critical intersections between one health, climate change, biodiversity, and agriculture.
+              Addressing the critical intersections between one health, climate change, biodiversity, agriculture, and animal science.
             </p>
           </motion.div>
           

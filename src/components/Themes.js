@@ -10,7 +10,7 @@ const Themes = () => {
         "Emerging infectious diseases and climate-sensitive health risks"
       ],
       icon: "🌡️",
-      color: "bg-blue-50"
+      color: "bg-blue-100"
     },
     {
       theme: "Biodiversity and Ecosystem Resilience",
@@ -19,7 +19,7 @@ const Themes = () => {
         "Conservation strategies for climate-stressed habitats"
       ],
       icon: "🌿",
-      color: "bg-green-50"
+      color: "bg-green-100"
     },
     {
       theme: "Agriculture and Food Security in a Warming World",
@@ -28,7 +28,7 @@ const Themes = () => {
         "Impacts of extreme weather on crop yield and food supply chains"
       ],
       icon: "🌾",
-      color: "bg-amber-50"
+      color: "bg-amber-100"
     },
     {
       theme: "Extreme Weather and Impact Based Early Warning",
@@ -37,27 +37,28 @@ const Themes = () => {
         "Integrating impact based early warning systems with community-based adaptation"
       ],
       icon: "🌪️",
-      color: "bg-red-50"
+      color: "bg-red-100"
+    },
+    {
+      theme: "Animal Science and Climate Adaptation",
+      points: [
+        "Climate impacts on livestock health and productivity",
+        "Sustainable animal husbandry practices in changing climates"
+      ],
+      icon: "🐄",
+      color: "bg-orange-100"
     },
     {
       theme: "Cross-sectoral Adaptation and Mitigation Strategies",
       points: [
-        "Policy frameworks connecting health, biodiversity, and agriculture",
-        "Nature-based solutions for climate resilience"
-      ],
-      icon: "🤝",
-      color: "bg-purple-50"
-    },
-    {
-      theme: "Integrated Assessment and Future Pathways",
-      points: [
+        "Policy frameworks connecting health, biodiversity, agriculture, and animal science",
+        "Nature-based solutions for climate resilience",
         "Modelling interactions between climate, health, biodiversity, and food systems",
-        "Pathways to sustainable development under climate change crossroads",
         "One Health and Climate Change"
       ],
-      icon: "📊",
-      color: "bg-cyan-50"
-    }
+      icon: "🤝",
+      color: "bg-purple-100"
+    },
   ];
 
   const containerVariants = {
@@ -103,8 +104,9 @@ const Themes = () => {
           Exploring the critical intersections between climate change and various sectors
         </motion.p>
 
+        {/* Solution: Use flexbox with wrap and justify-center for proper centering */}
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="flex flex-wrap justify-center gap-8"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -113,7 +115,7 @@ const Themes = () => {
           {themes.map((theme, index) => (
             <motion.div
               key={index}
-              className={`rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 ${theme.color}`}
+              className={`rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 ${theme.color} w-full md:w-[calc(50%-16px)] lg:w-[calc(33.333%-22px)] max-w-sm`}
               variants={itemVariants}
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
             >
@@ -121,7 +123,7 @@ const Themes = () => {
               <h3 className="text-xl font-semibold text-gray-800 mb-3">{theme.theme}</h3>
               <ul className="list-disc list-inside text-gray-600 space-y-2">
                 {theme.points.map((point, i) => (
-                  <li key={i}>{point}</li>
+                  <li key={i} className="text-sm leading-relaxed">{point}</li>
                 ))}
               </ul>
             </motion.div>

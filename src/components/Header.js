@@ -6,7 +6,8 @@ import {
   faChevronDown,
   faChevronUp,
   faBars,
-  faTimes
+  faTimes,
+  faExternalLinkAlt
 } from '@fortawesome/free-solid-svg-icons';
 
 const Header = () => {
@@ -27,31 +28,39 @@ const Header = () => {
 
   const dropdownMenus = {
     "Calls": [
-      { label: "Call for paper", link: "/call-for-paper" },
-      { label: "Call for poster presentation", link: "/call-for-poster" }
+      { 
+        label: "Call for paper", 
+        link: "https://easychair.org/conferences/?conf=icc1h",
+        external: true 
+      },
+      { 
+        label: "Call for poster presentation", 
+        link: "/call-for-poster",
+        external: false 
+      }
     ],
     "For Author": [
-      { label: "Guidelines for paper submission", link: "/guidelines-paper" },
-      { label: "Presentation guidelines", link: "/presentation-guidelines" },
-      { label: "Guidelines for poster session", link: "/poster-guidelines" }
+      { label: "Guidelines for paper submission", link: "/guidelines-paper", external: false },
+      { label: "Presentation guidelines", link: "/presentation-guidelines", external: false },
+      { label: "Guidelines for poster session", link: "/poster-guidelines", external: false }
     ],
     "Registration": [
-      { label: "Registration details", link: "/registration" }
+      { label: "Registration details", link: "/registration", external: false }
     ],
     "Program": [
-      { label: "Program flyer", link: "/program-flyer" },
-      { label: "Technical program", link: "/technical-program" },
-      { label: "Conference proceedings", link: "/proceedings" },
-      { label: "Keynote speakers", link: "/keynote-speakers" },
-      { label: "Special Sessions", link: "/special-sessions" }
+      { label: "Program flyer", link: "/program-flyer", external: false },
+      { label: "Technical program", link: "/technical-program", external: false },
+      { label: "Conference proceedings", link: "/proceedings", external: false },
+      { label: "Keynote speakers", link: "/keynote-speakers", external: false },
+      { label: "Special Sessions", link: "/special-sessions", external: false }
     ],
     "Travel and Venue": [
-      { label: "Check travel and venue details", link: "/travel-venue" }
+      { label: "Check travel and venue details", link: "/travel-venue", external: false }
     ],
     "Sponsors": [
-      { label: "ADRI CSEC", link: "/sponsor-adri-csec" },
-      { label: "Indian Meteorogical Society", link: "/sponsor-ims" },
-      { label: "Mahavir Cancer Sansthan", link: "/sponsor-mcs" }
+      { label: "ADRI CSEC", link: "/sponsor-adri-csec", external: false },
+      { label: "Indian Meteorogical Society", link: "/sponsor-ims", external: false },
+      { label: "Mahavir Cancer Sansthan", link: "/sponsor-mcs", external: false }
     ]
   };
 
@@ -63,8 +72,12 @@ const Header = () => {
     }
   };
 
-  const handleMenuItemClick = () => {
-    // Simply close the dropdowns - React Router will handle the navigation
+  const handleMenuItemClick = (item) => {
+    if (item.external) {
+      // For external links, open in new tab
+      window.open(item.link, '_blank', 'noopener,noreferrer');
+    }
+    // Close dropdowns regardless
     setActiveDropdown(null);
     setIsOpen(false);
   };
@@ -113,11 +126,25 @@ const Header = () => {
                     {dropdownMenus[menu].map((item, index) => (
                       <a
                         key={index}
-                        href={item.link}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600"
-                        onClick={handleMenuItemClick}
+                        href={item.external ? item.link : item.link}
+                        className={`block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600 flex items-center justify-between ${
+                          item.external ? 'font-semibold' : ''
+                        }`}
+                        onClick={(e) => {
+                          if (item.external) {
+                            e.preventDefault();
+                            handleMenuItemClick(item);
+                          } else {
+                            handleMenuItemClick(item);
+                          }
+                        }}
+                        target={item.external ? "_blank" : undefined}
+                        rel={item.external ? "noopener noreferrer" : undefined}
                       >
-                        {item.label}
+                        <span>{item.label}</span>
+                        {item.external && (
+                          <FontAwesomeIcon icon={faExternalLinkAlt} className="text-xs ml-2" />
+                        )}
                       </a>
                     ))}
                   </motion.div>
@@ -183,11 +210,25 @@ const Header = () => {
                     {dropdownMenus[menu].map((item, index) => (
                       <a
                         key={index}
-                        href={item.link}
-                        className="block py-2 text-gray-600 hover:text-green-600"
-                        onClick={handleMenuItemClick}
+                        href={item.external ? item.link : item.link}
+                        className={`block py-2 text-gray-600 hover:text-green-600 flex items-center justify-between ${
+                          item.external ? 'font-semibold' : ''
+                        }`}
+                        onClick={(e) => {
+                          if (item.external) {
+                            e.preventDefault();
+                            handleMenuItemClick(item);
+                          } else {
+                            handleMenuItemClick(item);
+                          }
+                        }}
+                        target={item.external ? "_blank" : undefined}
+                        rel={item.external ? "noopener noreferrer" : undefined}
                       >
-                        {item.label}
+                        <span>{item.label}</span>
+                        {item.external && (
+                          <FontAwesomeIcon icon={faExternalLinkAlt} className="text-xs ml-2" />
+                        )}
                       </a>
                     ))}
                   </motion.div>
