@@ -12,6 +12,25 @@ const Hero = () => {
   // Conference date: April 2, 2026
   const conferenceDate = new Date('2026-04-02T09:00:00');
 
+  // Headline ribbon content
+  const headlines = [
+    {
+      text: "📢 Call for Papers Now Open!",
+      link: "https://easychair.org/conferences/?conf=icc1h",
+      isExternal: true
+    },
+    {
+      text: "🎫 Registration Details Available",
+      link: "/registration",
+      isExternal: false
+    },
+    {
+      text: "🌟 Early Bird Registration Opening Soon",
+      link: null,
+      isExternal: false
+    },
+  ];
+
   useEffect(() => {
     const calculateTimeLeft = () => {
       const now = new Date();
@@ -33,6 +52,16 @@ const Hero = () => {
     return () => clearInterval(timer);
   }, []);
 
+  const handleHeadlineClick = (headline) => {
+    if (headline.link) {
+      if (headline.isExternal) {
+        window.open(headline.link, '_blank', 'noopener,noreferrer');
+      } else {
+        window.location.href = headline.link;
+      }
+    }
+  };
+
   return (
     <section
       className="relative min-h-screen flex items-center justify-center bg-cover bg-center py-8"
@@ -40,7 +69,28 @@ const Hero = () => {
         backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/hero-bg-3.png')`
       }}
     >
-      <div className="text-center text-white px-4 w-full max-w-6xl mx-auto max-sm:mt-10">
+      {/* Moving Headline Ribbon with Tailwind Animation */}
+      <div className="absolute top-0 left-0 w-full bg-gradient-to-r from-green-600 to-green-700 text-white max-sm:mt-[3.7rem] sm:mt-[4.2rem] md:mt-[5.8rem] lg:mt-[4.5rem] py-3 overflow-hidden z-40">
+        <div className="flex max-sm:animate-scrollfast animate-scroll whitespace-nowrap">
+          {[...headlines, ...headlines].map((headline, index) => (
+            <div
+              key={index}
+              className={`mx-8 flex items-center text-sm font-medium ${
+                headline.link ? 'cursor-pointer hover:text-green-200 transition-colors duration-200' : 'cursor-default'
+              }`}
+              onClick={() => handleHeadlineClick(headline)}
+            >
+              <span>{headline.text}</span>
+              {headline.link && (
+                <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="text-center text-white px-4 w-full max-w-6xl mx-auto max-sm:mt-10 sm:mt-10 md:mt-16 lg:mt-14">
         {/* Main Conference Title */}
         <div className="mb-6">
           <motion.h1 
@@ -144,7 +194,7 @@ const Hero = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.0 }}
         >
-          <p className="text-base md:text-lg font-light leading-relaxed text-gray-200">
+          <p className="text-base md:text-lg font-light leading-relaxed text-gray-200 max-sm:hidden">
             Addressing the critical intersections between one health, climate change, biodiversity, and agriculture through international collaboration and scientific discourse.
           </p>
         </motion.div>

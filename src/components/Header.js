@@ -116,15 +116,15 @@ const Header = () => {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <nav className="container mx-auto px-6 py-3">
+      <nav className="container mx-auto px-6 py-3 max-sm:py-0 sm:py-1">
         <div className="flex justify-between items-center">
           <motion.div 
             className="text-2xl font-bold text-green-700 flex items-center"
             whileHover={{ scale: 1.05 }}
           >
             <a href='/'>
-              <FontAwesomeIcon icon={faLeaf} className="mr-2" />
-              <p>ICC1H</p>
+              <FontAwesomeIcon icon={faLeaf} className="mr-2 max-sm:text-lg sm:text-2xl md:text-2xl lg:text-3xl" />
+              <p className='max-sm:text-lg sm:text-lg md:text-2xl lg:text-2xl'>ICC1H</p>
             </a>
           </motion.div>
           
