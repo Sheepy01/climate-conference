@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { 
   faLeaf, 
@@ -13,6 +14,8 @@ import {
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const menuVariants = {
     open: { opacity: 1, x: 0 },
@@ -20,11 +23,35 @@ const Header = () => {
   };
 
   const scrollToSection = (id) => {
-    const element = document.getElementById(id);
-    element.scrollIntoView({ behavior: 'smooth' });
+    if (location.pathname === '/') {
+      // We're on the home page - scroll to section
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    } else {
+      // We're on another page - navigate to home page first, then scroll
+      navigate('/', { 
+        state: { scrollTo: id }
+      });
+    }
     setIsOpen(false);
     setActiveDropdown(null);
   };
+
+  // Effect to handle scrolling after navigation (if needed)
+  React.useEffect(() => {
+    if (location.pathname === '/' && location.state?.scrollTo) {
+      const element = document.getElementById(location.state.scrollTo);
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+          // Clear the state to prevent repeated scrolling
+          window.history.replaceState({}, document.title);
+        }, 100);
+      }
+    }
+  }, [location]);
 
   const dropdownMenus = {
     "Calls": [

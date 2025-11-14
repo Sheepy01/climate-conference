@@ -390,6 +390,7 @@ const RegistrationPage = () => {
                     <li>• Registration fees are non-refundable</li>
                     <li>• Student registration requires valid student ID</li>
                     <li>• All fees include 18% GST as applicable</li>
+                    <li>• On-Spot registration will cost Rs 500 extra</li>
                   </ul>
                 </div>
               </div>
@@ -411,15 +412,6 @@ const RegistrationPage = () => {
                         <div>
                           <div className="font-medium text-sm sm:text-base">Registration Queries</div>
                           <div className="text-green-600 text-sm sm:text-base">climatecrossroads01@gmail.com</div>
-                        </div>
-                      </div>
-                      <div className="flex items-center">
-                        <div className="w-6 h-6 sm:w-8 sm:h-8 bg-blue-100 rounded-full flex items-center justify-center mr-2 sm:mr-3 text-sm sm:text-base">
-                          💬
-                        </div>
-                        <div>
-                          <div className="font-medium text-sm sm:text-base">Technical Support</div>
-                          <div className="text-blue-600 text-sm sm:text-base">+91-XXX-XXXX-XXXX</div>
                         </div>
                       </div>
                     </div>
