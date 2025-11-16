@@ -40,7 +40,33 @@ const RegistrationPage = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-8 lg:py-20">
       {/* Professional Header Banner */}
-      <div className="bg-gradient-to-r from-green-700 to-green-800 text-white max-sm:mt-14 sm:mt-14 md:mt-20 lg:mt-0 py-5 lg:py-12">
+      <div className="bg-gradient-to-r from-green-700 to-green-800 text-white max-sm:mt-14 sm:mt-14 md:mt-20 lg:mt-0 py-5 lg:py-12 relative">
+        <div className='absolute inset-0 flex justify-between items-center px-4'>
+          <div className='p-5 rounded-2xl bg-green-900 shadow-md'>
+            <img 
+              src='images/sponsors/adri_csec.jpg' 
+              className='w-24 h-16 object-contain' 
+              alt="ADRI CSEC"
+            />
+            <img 
+              src='images/sponsors/ims.jpeg' 
+              className='w-24 h-16 object-contain' 
+              alt="IMS"
+            />
+          </div>
+          <div className='p-5 rounded-2xl bg-green-900 shadow-md'>
+            <img 
+              src='images/sponsors/mcs.jpg' 
+              className='w-24 h-16 object-contain' 
+              alt="IMS"
+            />
+            <img 
+              src='images/sponsors/basu.png' 
+              className='w-24 h-16 object-contain' 
+              alt="IMS"
+            />
+          </div>
+        </div>
         <div className="container mx-auto px-4 sm:px-6 text-center">
           <motion.h1 
             className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 lg:mb-4"

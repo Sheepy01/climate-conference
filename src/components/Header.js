@@ -85,9 +85,10 @@ const Header = () => {
       { label: "Check travel and venue details", link: "/travel-venue", external: false }
     ],
     "Sponsors": [
-      { label: "ADRI CSEC", link: "/sponsor-adri-csec", external: false },
-      { label: "Indian Meteorogical Society", link: "/sponsor-ims", external: false },
-      { label: "Mahavir Cancer Sansthan", link: "/sponsor-mcs", external: false }
+      { label: "ADRI CSEC", link: "https://www.adriindia.org/centre/csec", external: true },
+      { label: "Indian Meteorogical Society", link: "https://imetsociety.org/", external: true },
+      { label: "Mahavir Cancer Sansthan", link: "https://www.mahavircancersansthan.com/", external: true },
+      { label: "Bihar Animal Sciences University", link: "https://basu.org.in/", external: true },
     ]
   };
 

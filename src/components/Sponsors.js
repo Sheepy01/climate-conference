@@ -4,20 +4,24 @@ import { motion } from 'framer-motion';
 const Sponsors = () => {
   const sponsors = [
     {
-      name: "Sponsor 1",
-      logo: "images/sponsors/adri_csec.jpg"
+      name: "ADRI CSEC",
+      logo: "images/sponsors/adri_csec.jpg",
+      link: "https://www.adriindia.org/centre/csec"
     },
     {
-      name: "Sponsor 2",
-      logo: "images/sponsors/ims.jpeg"
+      name: "Indian Meteorological Society",
+      logo: "images/sponsors/ims.jpeg",
+      link: "https://imetsociety.org/"
     },
     {
-      name: "Sponsor 3",
-      logo: "images/sponsors/mcs.jpg"
+      name: "Mahavir Cancer Sansthan",
+      logo: "images/sponsors/mcs.jpg",
+      link: "https://www.mahavircancersansthan.com/",
     },
     {
-      name: "Sponsor 4",
-      logo: "images/sponsors/basu.png"
+      name: "Bihar Animal Sciences University",
+      logo: "images/sponsors/basu.png",
+      link: "https://basu.org.in/"
     },
   ];
 
@@ -78,11 +82,13 @@ const Sponsors = () => {
               variants={itemVariants}
               whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
             >
-              <img 
-                src={sponsor.logo} 
-                alt={sponsor.name}
-                className="max-w-full max-h-32 object-contain"
-              />
+              <a id='sponsor_link' href={sponsor.link} target='_blank'>
+                <img 
+                  src={sponsor.logo} 
+                  alt={sponsor.name}
+                  className="max-w-full max-h-32 object-contain"
+                />
+              </a>
             </motion.div>
           ))}
         </motion.div>

@@ -19,6 +19,8 @@ const Hero = () => {
   // Conference date: March 23, 2026
   const conferenceDate = new Date('2026-03-23T09:00:00');
 
+  const sub_heading = `"Addressing the critical intersections between one health, animal health, climate change, biodiversity, agriculture, and the role of artifical intelligence and machine learning through international collaboration and scientific discourse."`
+
   // Headline ribbon content
   const headlines = [
     {
@@ -123,6 +125,14 @@ const Hero = () => {
             <span className="gradient-text drop-shadow-2xl block">Crossroads</span>
           </motion.h1>
 
+          <motion.p className="text-sm mb-3 max-w-[50rem] mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <span className="text-[1.1rem]">{sub_heading}</span>
+          </motion.p>
+
           {/* Theme Tags with Icons */}
           <motion.div
             className="flex flex-wrap justify-center gap-4 mb-8"
@@ -146,7 +156,7 @@ const Hero = () => {
                 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ type: "spring", stiffness: 400, damping: 15, duration: 0.5, delay: 0.3 + index * 0.1 }}
+                transition={{ type: "tween", duration: 0.1 }}
               >
                 {/* Gradient Background on Hover */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${theme.color} rounded-2xl opacity-0 group-hover:opacity-10 transition-opacity duration-300`} />
@@ -164,7 +174,7 @@ const Hero = () => {
 
         {/* CTA Buttons */}
         <motion.div
-          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.1 }}

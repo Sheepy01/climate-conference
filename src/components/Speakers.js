@@ -1,8 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Award, Users, Globe, Star, ExternalLink } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Speakers = () => {
+  const navigate = useNavigate();
+
+    const handleJoinButton = () => {
+        navigate('/registration');
+    }
+
   const keynoteSpeakers = [
     {
       name: "Dr. Mrutyunjay Mohapatra",
@@ -352,7 +359,7 @@ const Speakers = () => {
             <p className="text-gray-600 mb-6">
               Be part of the conversation with leading minds shaping the future of climate science and sustainable development.
             </p>
-            <button className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg">
+            <button className="bg-gradient-to-r from-green-600 to-blue-600 hover:from-green-700 hover:to-blue-700 text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg" onClick={handleJoinButton}>
               Register to Attend
             </button>
           </div>
