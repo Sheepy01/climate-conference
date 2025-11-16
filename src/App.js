@@ -10,6 +10,7 @@ import PlaceholderPage from './components/PlaceholderPage';
 import RegistrationPage from './components/RegistrationPage';
 import KeynoteSpeakers from './components/KeynoteSpeakers';
 import InvitedSpeakers from './components/InvitedSpeakers';
+import About from './components/About';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={
             <>
               <Hero />
+              <About />
               <Themes />
               <Speakers />
               <Sponsors />

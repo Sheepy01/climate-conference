@@ -11,7 +11,7 @@ const RegistrationFAB = () => {
   };
 
   return (
-    <div className="fixed max-sm:right-[2rem] right-[10rem] top-1/2 -translate-y-1/2 z-50 sm:block md:block shad">
+    <div className="fixed max-sm:right-[2rem] right-[8rem] top-[18rem] -translate-y-1/2 z-50 sm:block sm:top-[14rem] sm:right-[5rem] md:block shad">
       <AnimatePresence mode="wait">
         {!isExpanded ? (
           // Circular Button with Ping Animation

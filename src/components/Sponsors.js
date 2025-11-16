@@ -14,7 +14,11 @@ const Sponsors = () => {
     {
       name: "Sponsor 3",
       logo: "images/sponsors/mcs.jpg"
-    }
+    },
+    {
+      name: "Sponsor 4",
+      logo: "images/sponsors/basu.png"
+    },
   ];
 
   const containerVariants = {
@@ -39,10 +43,10 @@ const Sponsors = () => {
   };
 
   return (
-    <section id="sponsors" className="py-20 bg-gray-50">
+    <section id="sponsors" className="py-20 bg-gradient-to-br from-green-500 to-green-800">
       <div className="container mx-auto px-6">
         <motion.h2 
-          className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-4"
+          className="text-3xl md:text-4xl font-bold text-center text-white mb-4"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -51,7 +55,7 @@ const Sponsors = () => {
           Our Sponsors
         </motion.h2>
         <motion.p 
-          className="text-center text-gray-600 mb-12 max-w-3xl mx-auto"
+          className="text-center text-gray-100 mb-12 max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -61,7 +65,7 @@ const Sponsors = () => {
         </motion.p>
 
         <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-center"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-center"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

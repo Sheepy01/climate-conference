@@ -8,6 +8,7 @@ module.exports = {
       animation: {
         'scroll': 'scroll 30s linear infinite',
         'scrollfast': 'scroll 6s linear infinite',
+        'pulse': 'pulse 3s ease-in-out infinite',
       },
       keyframes: {
         scroll: {
@@ -18,6 +19,9 @@ module.exports = {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-50%)' },
         }
+      },
+      animationDelay: {
+        '2000': '2000ms',
       }
     },
   },
