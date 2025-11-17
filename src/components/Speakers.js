@@ -12,6 +12,14 @@ const Speakers = () => {
 
   const keynoteSpeakers = [
     {
+      name: "Dr. Ashok Ghosh",
+      title: "Mahavir Cancer Sansthan and Research Centre",
+      role: "Professor & Head, Former Chairman at Bihar State Pollution Control Board Member",
+      theme: "Health",
+      image: "/images/keynote_speakers/dr_ashok_ghosh.jpg",
+      featured: true,
+    },
+    {
       name: "Dr. Mrutyunjay Mohapatra",
       title: "Director General of Meteorology, India Meteorological Department",
       role: "Permanent Representative of India to WMO, 3rd Vice President of WMO",

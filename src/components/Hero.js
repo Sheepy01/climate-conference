@@ -108,7 +108,7 @@ const Hero = () => {
         {/* Main Conference Title */}
         <div className="mb-6">
           <motion.h1 
-            className="text-2xl md:text-3xl font-normal mb-2 mt-10"
+            className="text-2xl max-sm:text-[1rem] md:text-3xl font-normal mt-10 md:mt-16"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -130,7 +130,7 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-[1.1rem]">{sub_heading}</span>
+            <span className="max-sm:text-[0.9rem] sm:text-[0.8rem] md:text-[1rem] lg:text-[1.1rem]">{sub_heading}</span>
           </motion.p>
 
           {/* Theme Tags with Icons */}

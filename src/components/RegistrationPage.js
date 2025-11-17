@@ -40,33 +40,7 @@ const RegistrationPage = () => {
   return (
     <div className="min-h-screen bg-gray-50 py-8 lg:py-20">
       {/* Professional Header Banner */}
-      <div className="bg-gradient-to-r from-green-700 to-green-800 text-white max-sm:mt-14 sm:mt-14 md:mt-20 lg:mt-0 py-5 lg:py-12 relative">
-        <div className='absolute inset-0 flex justify-between items-center px-4'>
-          <div className='p-5 rounded-2xl bg-green-900 shadow-md'>
-            <img 
-              src='images/sponsors/adri_csec.jpg' 
-              className='w-24 h-16 object-contain' 
-              alt="ADRI CSEC"
-            />
-            <img 
-              src='images/sponsors/ims.jpeg' 
-              className='w-24 h-16 object-contain' 
-              alt="IMS"
-            />
-          </div>
-          <div className='p-5 rounded-2xl bg-green-900 shadow-md'>
-            <img 
-              src='images/sponsors/mcs.jpg' 
-              className='w-24 h-16 object-contain' 
-              alt="IMS"
-            />
-            <img 
-              src='images/sponsors/basu.png' 
-              className='w-24 h-16 object-contain' 
-              alt="IMS"
-            />
-          </div>
-        </div>
+      <div className="bg-gradient-to-r from-green-700 to-green-800 text-white max-sm:mt-14 sm:mt-14 md:mt-20 lg:mt-0 py-5 lg:py-12">
         <div className="container mx-auto px-4 sm:px-6 text-center">
           <motion.h1 
             className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold mb-3 lg:mb-4"
@@ -79,8 +53,8 @@ const RegistrationPage = () => {
             International Conference on Climate Change, One Health, Biodiversity, Agriculture, Extreme Weather, and Animal Science
           </p>
           <div className="mt-3 lg:mt-4 flex flex-wrap justify-center items-center gap-2 sm:gap-4 text-xs sm:text-sm">
-            <div className="bg-green-600 px-2 sm:px-3 py-1 rounded-full">📅 2-3 Apr 2026</div>
-            <div className="bg-green-600 px-2 sm:px-3 py-1 rounded-full">📍 Patna, Bihar, India</div>
+            <div className="bg-green-600 px-2 sm:px-3 py-1 rounded-full">📅 23-24 Mar 2026</div>
+            <div className="bg-green-600 px-2 sm:px-3 py-1 rounded-full">📍 BASU, Patna, Bihar, India</div>
           </div>
         </div>
       </div>

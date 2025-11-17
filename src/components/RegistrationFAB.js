@@ -11,7 +11,7 @@ const RegistrationFAB = () => {
   };
 
   return (
-    <div className="fixed max-sm:right-[2rem] right-[8rem] top-[18rem] -translate-y-1/2 z-50 sm:block sm:top-[14rem] sm:right-[5rem] md:block shad">
+    <div className="fixed max-sm:right-[1rem] max-sm:top-[31rem] right-[8rem] top-[18rem] -translate-y-1/2 z-50 sm:block sm:top-[14rem] sm:right-[5rem] md:block shad">
       <AnimatePresence mode="wait">
         {!isExpanded ? (
           // Circular Button with Ping Animation
@@ -33,12 +33,12 @@ const RegistrationFAB = () => {
             
             {/* Main Circle Button */}
             <motion.button
-              className="relative w-16 h-16 bg-gradient-to-br from-green-600 to-green-700 rounded-full shadow-2xl flex items-center justify-center text-white cursor-pointer hover:from-green-700 hover:to-green-800 transition-all duration-300"
+              className="relative max-sm:w-12 max-sm:h-12 w-16 h-16 bg-gradient-to-br from-green-600 to-green-700 rounded-full shadow-2xl flex items-center justify-center text-white cursor-pointer hover:from-green-700 hover:to-green-800 transition-all duration-300"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
             >
               <svg 
-                className="w-7 h-7" 
+                className="w-7 h-7 max-sm:w-5 max-sm:h-5" 
                 fill="none" 
                 stroke="currentColor" 
                 viewBox="0 0 24 24"
@@ -145,7 +145,7 @@ const RegistrationFAB = () => {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.8 }}
               >
-                April 2-3, 2026 • Patna, India
+                Mar 23 - 24, 2026 • BASU, Patna, India
               </motion.p>
             </div>
           </motion.div>

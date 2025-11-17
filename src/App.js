@@ -37,7 +37,6 @@ function App() {
           <Route path="/program-flyer" element={<PlaceholderPage title="Program Flyer" />} />
           <Route path="/technical-program" element={<PlaceholderPage title="Technical Program" />} />
           <Route path="/proceedings" element={<PlaceholderPage title="Conference Proceedings" />} />
-          {/* <Route path="/keynote-speakers" element={<PlaceholderPage title="Keynote Speakers" />} /> */}
           <Route path="/keynote-speakers" element={<KeynoteSpeakers />} />
           <Route path="/invited-speakers" element={<InvitedSpeakers />} />
           <Route path="/special-sessions" element={<PlaceholderPage title="Special Sessions" />} />
