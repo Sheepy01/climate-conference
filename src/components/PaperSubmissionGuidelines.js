@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FileText, Download, CheckCircle, AlertCircle, BookOpen, Image, Users, Shield } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const PaperSubmissionGuidelines = () => {
   const guidelines = {
@@ -94,6 +95,12 @@ const PaperSubmissionGuidelines = () => {
       }
     }
   };
+
+  const navigate = useNavigate();
+
+  const submitHandler = (url) => {
+    window.open(url);
+  }
 
   return (
     <section id="paper-submission" className="relative py-20 bg-gradient-to-br from-slate-50 to-blue-50 overflow-hidden">
@@ -341,10 +348,7 @@ const PaperSubmissionGuidelines = () => {
               Download the Springer template and ensure your paper meets all submission guidelines before proceeding.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white text-blue-600 hover:bg-blue-50 font-semibold py-3 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg">
-                Download Template
-              </button>
-              <button className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-semibold py-3 px-8 rounded-xl transition-all duration-300 transform hover:scale-105">
+              <button onClick={() => submitHandler('https://easychair.org/conferences/?conf=icc1h')} className="bg-transparent border-2 border-white text-white hover:bg-white/10 font-semibold py-3 px-8 rounded-xl transition-all duration-300 transform hover:scale-105">
                 Submit Paper
               </button>
             </div>
