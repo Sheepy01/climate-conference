@@ -11,6 +11,7 @@ import RegistrationPage from './components/RegistrationPage';
 import KeynoteSpeakers from './components/KeynoteSpeakers';
 import InvitedSpeakers from './components/InvitedSpeakers';
 import About from './components/About';
+import PaperSubmissionGuidelines from './components/PaperSubmissionGuidelines';
 
 function App() {
   return (
@@ -30,7 +31,7 @@ function App() {
           {/* Add routes for all dropdown menu items */}
           <Route path="/call-for-paper" element={<PlaceholderPage title="Call for Paper" />} />
           <Route path="/call-for-poster" element={<PlaceholderPage title="Call for Poster Presentation" />} />
-          <Route path="/guidelines-paper" element={<PlaceholderPage title="Guidelines for Paper Submission" />} />
+          <Route path="/guidelines-paper" element={<PaperSubmissionGuidelines />} />
           <Route path="/presentation-guidelines" element={<PlaceholderPage title="Presentation Guidelines" />} />
           <Route path="/poster-guidelines" element={<PlaceholderPage title="Guidelines for Poster Session" />} />
           <Route path="/registration" element={<RegistrationPage title="Registration" />} />
