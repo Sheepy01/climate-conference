@@ -38,6 +38,21 @@ const Hero = () => {
       link: null,
       isExternal: false
     },
+    {
+      text: "📃 Paper Submission Deadline: Jan 10, 2026",
+      link: null,
+      isExternal: false
+    },
+    {
+      text: "🔔 Acceptance Notification: Jan 31, 2026",
+      link: null,
+      isExternal: false
+    },
+    {
+      text: "🧑‍💻 Registration Starting: Feb 15, 2026",
+      link: null,
+      isExternal: false
+    },
   ];
 
   const toggleAboutSection = () => {

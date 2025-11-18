@@ -10,8 +10,12 @@ const RegistrationFAB = () => {
     window.location.href = '/registration';
   };
 
+  const registrationStartDate = new Date('2026-02-15');
+  const currentDate = new Date();
+  const isRegistrationOpen = currentDate >= registrationStartDate;
+
   return (
-    <div className="fixed max-sm:right-[1rem] max-sm:top-[31rem] right-[8rem] top-[18rem] -translate-y-1/2 z-50 sm:block sm:top-[14rem] sm:right-[5rem] md:block shad">
+    <div className="fixed max-sm:right-[1rem] max-sm:top-[31rem] lg:right-[8rem] lg:top-[20rem] -translate-y-1/2 z-50 sm:block sm:top-[14rem] sm:right-[5rem] md:block">
       <AnimatePresence mode="wait">
         {!isExpanded ? (
           // Circular Button with Ping Animation
@@ -30,6 +34,18 @@ const RegistrationFAB = () => {
               <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping"></span>
               <span className="absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75 animate-ping animation-delay-500"></span>
             </span>
+            
+            {/* Registration Status Badge */}
+            {!isRegistrationOpen && (
+              <motion.div
+                className="absolute -top-2 -right-2 bg-amber-500 text-white text-xs font-bold px-2 py-1 rounded-full shadow-lg z-10"
+                initial={{ scale: 0, rotate: -180 }}
+                animate={{ scale: 1, rotate: 0 }}
+                transition={{ type: "spring", stiffness: 300, delay: 0.5 }}
+              >
+                Soon
+              </motion.div>
+            )}
             
             {/* Main Circle Button */}
             <motion.button
@@ -94,12 +110,70 @@ const RegistrationFAB = () => {
                 <p className="text-sm text-gray-600">Secure your spot at ICC1H 2026</p>
               </div>
 
+              {/* Registration Status Banner */}
+              <motion.div
+                className={`mb-4 p-3 rounded-lg border ${
+                  isRegistrationOpen 
+                    ? 'bg-green-50 border-green-200' 
+                    : 'bg-amber-50 border-amber-200'
+                }`}
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+              >
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center space-x-2">
+                    <motion.div
+                      className={`w-3 h-3 rounded-full ${
+                        isRegistrationOpen ? 'bg-green-500' : 'bg-amber-500'
+                      }`}
+                      animate={{ 
+                        scale: [1, 1.2, 1],
+                        opacity: [1, 0.7, 1]
+                      }}
+                      transition={{ 
+                        duration: 2, 
+                        repeat: Infinity,
+                        repeatType: "reverse"
+                      }}
+                    />
+                    <span className={`text-sm font-semibold ${
+                      isRegistrationOpen ? 'text-green-800' : 'text-amber-800'
+                    }`}>
+                      {isRegistrationOpen ? 'Registration Open!' : 'Registration Opens Soon'}
+                    </span>
+                  </div>
+                  <motion.div
+                    className={`text-xs font-bold px-2 py-1 rounded ${
+                      isRegistrationOpen 
+                        ? 'bg-green-100 text-green-700' 
+                        : 'bg-amber-100 text-amber-700'
+                    }`}
+                    initial={{ scale: 0.8 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 0.5 }}
+                  >
+                    {isRegistrationOpen ? 'Live' : 'Feb 15, 2026'}
+                  </motion.div>
+                </div>
+                {!isRegistrationOpen && (
+                  <motion.p 
+                    className="text-xs text-amber-700 mt-2 text-center"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.6 }}
+                  >
+                    Registration starts February 15, 2026
+                  </motion.p>
+                )}
+              </motion.div>
+
               {/* Benefits List */}
               <motion.div 
                 className="space-y-3 mb-5"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
+                transition={{ delay: 0.4 }}
               >
                 {[
                   { icon: "✓", text: "Early bird discounts" },
@@ -112,7 +186,7 @@ const RegistrationFAB = () => {
                     className="flex items-center space-x-2"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.4 + index * 0.1 }}
+                    transition={{ delay: 0.5 + index * 0.1 }}
                   >
                     <span className="flex-shrink-0 w-5 h-5 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-xs font-bold">
                       {benefit.icon}
@@ -125,17 +199,26 @@ const RegistrationFAB = () => {
               {/* CTA Button */}
               <motion.button
                 onClick={handleRegister}
-                className="w-full bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2"
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+                disabled={!isRegistrationOpen}
+                className={`w-full font-semibold py-3 px-6 rounded-xl shadow-lg transition-all duration-300 flex items-center justify-center space-x-2 ${
+                  isRegistrationOpen
+                    ? 'bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white hover:shadow-xl cursor-pointer'
+                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                }`}
+                whileHover={isRegistrationOpen ? { scale: 1.02 } : {}}
+                whileTap={isRegistrationOpen ? { scale: 0.98 } : {}}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
+                transition={{ delay: 0.8 }}
               >
-                <span>Register Now</span>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                </svg>
+                <span>
+                  {isRegistrationOpen ? 'Register Now' : 'Registration Soon'}
+                </span>
+                {isRegistrationOpen && (
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  </svg>
+                )}
               </motion.button>
 
               {/* Footer */}
@@ -143,7 +226,7 @@ const RegistrationFAB = () => {
                 className="text-xs text-gray-500 text-center mt-4"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
-                transition={{ delay: 0.8 }}
+                transition={{ delay: 1.1 }}
               >
                 Mar 23 - 24, 2026 • BASU, Patna, India
               </motion.p>
