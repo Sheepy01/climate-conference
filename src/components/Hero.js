@@ -39,12 +39,17 @@ const Hero = () => {
       isExternal: false
     },
     {
-      text: "📃 Paper Submission Deadline: Jan 10, 2026",
+      text: "📃 Paper Submission Deadline: Dec 31, 2025",
       link: null,
       isExternal: false
     },
     {
-      text: "🔔 Acceptance Notification: Jan 31, 2026",
+      text: "🔔 Paper Acceptance Notification: Jan 20, 2026",
+      link: null,
+      isExternal: false
+    },
+    {
+      text: "✅ Final Corrected Paper Submission: Mar 7, 2026",
       link: null,
       isExternal: false
     },

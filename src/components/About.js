@@ -208,36 +208,6 @@ const About = () => {
           </motion.div>
         </div>
 
-        {/* Stats Section */}
-        <motion.div
-          className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          viewport={{ once: true }}
-        >
-          {[
-            { number: "50+", label: "International Experts" },
-            { number: "20+", label: "Countries Represented" },
-            { number: "5", label: "Core Themes" },
-            { number: "2", label: "Days of Innovation" }
-          ].map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              className="text-center group"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 400 }}
-            >
-              <div className="text-3xl md:text-4xl font-bold text-white mb-2 group-hover:text-green-400 transition-colors duration-300">
-                {stat.number}
-              </div>
-              <div className="text-gray-400 text-sm font-medium">
-                {stat.label}
-              </div>
-            </motion.div>
-          ))}
-        </motion.div>
-
         {/* CTA Button */}
         <motion.div
           className="text-center mt-12"
