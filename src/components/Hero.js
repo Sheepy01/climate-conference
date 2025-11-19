@@ -127,26 +127,27 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            style={{ fontFamily: 'Playfair Display, serif' }}
           >
             First International Conference <br /> on
           </motion.h1>
           <motion.h1 
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-3"
+            className="text-3xl md:text-5xl lg:text-5xl font-bold mb-3"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
+            style={{ fontFamily: 'Playfair Display, serif' }}
           >
-            <span className="gradient-text drop-shadow-2xl block">Climate Change</span>
-            <span className="gradient-text drop-shadow-2xl block">Crossroads</span>
+            <span className="gradient-text drop-shadow-2xl block">Climate Change Crossroads: One Health, Biodiversity, Agriculture, Extreme Weather and Animal Science</span>
           </motion.h1>
 
-          <motion.p className="text-sm mb-3 max-w-[50rem] mx-auto"
+          <motion.div className="text-sm mb-3 max-w-[50rem] mx-auto bg-gray-800 p-5 rounded-xl border border-gray-400"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
             <span className="max-sm:text-[0.9rem] sm:text-[0.8rem] md:text-[1rem] lg:text-[1.1rem]">{sub_heading}</span>
-          </motion.p>
+          </motion.div>
 
           {/* Theme Tags with Icons */}
           <motion.div

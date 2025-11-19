@@ -176,7 +176,6 @@ const RegistrationFAB = () => {
                 transition={{ delay: 0.4 }}
               >
                 {[
-                  { icon: "✓", text: "Early bird discounts" },
                   { icon: "✓", text: "Access to all sessions" },
                   { icon: "✓", text: "Networking opportunities" },
                   { icon: "✓", text: "Conference materials" }

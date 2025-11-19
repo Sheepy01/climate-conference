@@ -90,7 +90,7 @@ const Speakers = () => {
       title: "Ex Professor, A.N. College, Patna",
       role: "Academic Research",
       theme: "Climate Education",
-      image: "/images/keynote_speakers/dr_nupur_bose.png"
+      image: "/images/keynote_speakers/dr_nupur_bose.jpg"
     },
   ];
 

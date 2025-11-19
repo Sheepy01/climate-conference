@@ -9,10 +9,28 @@ const RegistrationPage = () => {
   const [activeTab, setActiveTab] = useState('fees');
 
   const registrationData = [
-    { category: 'Student', inr: 3000, description: 'Full-time students with valid ID' },
-    { category: 'Academicians', inr: 5000, description: 'Faculty members and researchers' },
-    { category: 'Industry Professionals', inr: 8000, description: 'Corporate and industry participants' },
-  ];
+  {
+    category: 'Students',
+    description: 'Full-time students with valid student ID',
+    regBy31Jan: 2500,
+    regBy15Feb: 3000,
+    onSpot: 3500
+  },
+  {
+    category: 'Academicians',
+    description: 'Faculty members, researchers, and academic professionals',
+    regBy31Jan: 4500,
+    regBy15Feb: 5000,
+    onSpot: 5500
+  },
+  {
+    category: 'Industry',
+    description: 'Industry professionals and corporate participants',
+    regBy31Jan: 7500,
+    regBy15Feb: 8000,
+    onSpot: 8500
+  }
+];
 
   const calculateUSD = (inrAmount) => {
     if (!exchangeRate) return 'Loading...';
@@ -162,16 +180,19 @@ const RegistrationPage = () => {
                       <thead className="bg-gray-50">
                         <tr>
                           <th className="px-4 sm:px-6 py-3 lg:py-4 text-left text-xs sm:text-sm font-semibold text-gray-700 uppercase tracking-wider">
-                            Participant Category
+                            Attendee Type
                           </th>
                           <th className="px-4 sm:px-6 py-3 lg:py-4 text-left text-xs sm:text-sm font-semibold text-gray-700 uppercase tracking-wider">
                             Eligibility & Description
                           </th>
                           <th className="px-4 sm:px-6 py-3 lg:py-4 text-center text-xs sm:text-sm font-semibold text-gray-700 uppercase tracking-wider">
-                            Indian Rupee (INR)
+                            Registration by 31st Jan 2026
                           </th>
                           <th className="px-4 sm:px-6 py-3 lg:py-4 text-center text-xs sm:text-sm font-semibold text-gray-700 uppercase tracking-wider">
-                            US Dollar (USD)
+                            Registration by 15th Feb 2026
+                          </th>
+                          <th className="px-4 sm:px-6 py-3 lg:py-4 text-center text-xs sm:text-sm font-semibold text-gray-700 uppercase tracking-wider">
+                            On-Spot Registration (additional ₹500)
                           </th>
                         </tr>
                       </thead>
@@ -184,7 +205,7 @@ const RegistrationPage = () => {
                             <td className="px-4 sm:px-6 py-4 lg:py-5 whitespace-nowrap">
                               <div className="flex items-center">
                                 <div className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full mr-2 sm:mr-3 ${
-                                  item.category === 'Student' ? 'bg-blue-500' :
+                                  item.category === 'Students' ? 'bg-blue-500' :
                                   item.category === 'Academicians' ? 'bg-green-500' :
                                   'bg-purple-500'
                                 }`}></div>
@@ -193,7 +214,7 @@ const RegistrationPage = () => {
                             </td>
                             <td className="px-4 sm:px-6 py-4 lg:py-5">
                               <div className="text-xs sm:text-sm text-gray-600 max-w-xs">{item.description}</div>
-                              {item.category === 'Student' && (
+                              {item.category === 'Students' && (
                                 <div className="mt-1">
                                   <span className="inline-block bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">
                                     Valid ID Required
@@ -201,16 +222,43 @@ const RegistrationPage = () => {
                                 </div>
                               )}
                             </td>
+                            {/* Registration by 31st Jan 2026 */}
                             <td className="px-4 sm:px-6 py-4 lg:py-5 whitespace-nowrap text-center">
-                              <div className="flex flex-col items-center">
-                                <span className="font-bold text-gray-900 text-sm sm:text-base lg:text-lg">₹{item.inr.toLocaleString('en-IN')}</span>
-                                <span className="text-xs text-gray-500 mt-1">Indian Participants</span>
+                              <div className="flex flex-col items-center space-y-2">
+                                <div className="flex flex-col items-center bg-yellow-200 py-2 px-4 rounded-lg border border-red-300">
+                                  <span className="font-bold text-gray-900 text-sm sm:text-base">₹{item.regBy31Jan.toLocaleString('en-IN')}</span>
+                                  <span className="text-xs text-gray-500">INR</span>
+                                </div>
+                                <div className="flex flex-col items-center bg-sky-200 py-2 px-4 rounded-lg border border-blue-500">
+                                  <span className="font-bold text-green-700 text-sm sm:text-base">${calculateUSD(item.regBy31Jan)}</span>
+                                  <span className="text-xs text-gray-500">USD</span>
+                                </div>
                               </div>
                             </td>
+                            {/* Registration by 15th Feb 2026 */}
                             <td className="px-4 sm:px-6 py-4 lg:py-5 whitespace-nowrap text-center">
-                              <div className="flex flex-col items-center">
-                                <span className="font-bold text-green-700 text-sm sm:text-base lg:text-lg">${calculateUSD(item.inr)}</span>
-                                <span className="text-xs text-gray-500 mt-1">International Participants</span>
+                              <div className="flex flex-col items-center space-y-2">
+                                <div className="flex flex-col items-center bg-yellow-200 py-2 px-4 rounded-lg border border-red-300">
+                                  <span className="font-bold text-gray-900 text-sm sm:text-base">₹{item.regBy15Feb.toLocaleString('en-IN')}</span>
+                                  <span className="text-xs text-gray-500">INR</span>
+                                </div>
+                                <div className="flex flex-col items-center bg-sky-200 py-2 px-4 rounded-lg border border-blue-500">
+                                  <span className="font-bold text-green-700 text-sm sm:text-base">${calculateUSD(item.regBy15Feb)}</span>
+                                  <span className="text-xs text-gray-500">USD</span>
+                                </div>
+                              </div>
+                            </td>
+                            {/* On-Spot Registration */}
+                            <td className="px-4 sm:px-6 py-4 lg:py-5 whitespace-nowrap text-center">
+                              <div className="flex flex-col items-center space-y-2">
+                                <div className="flex flex-col items-center bg-yellow-200 py-2 px-4 rounded-lg border border-red-300">
+                                  <span className="font-bold text-gray-900 text-sm sm:text-base">₹{item.onSpot.toLocaleString('en-IN')}</span>
+                                  <span className="text-xs text-gray-500">INR</span>
+                                </div>
+                                <div className="flex flex-col items-center bg-sky-200 py-2 px-4 rounded-lg border border-blue-500">
+                                  <span className="font-bold text-green-700 text-sm sm:text-base">${calculateUSD(item.onSpot)}</span>
+                                  <span className="text-xs text-gray-500">USD</span>
+                                </div>
                               </div>
                             </td>
                           </tr>
@@ -226,29 +274,66 @@ const RegistrationPage = () => {
                         <div className="flex items-center justify-between mb-3">
                           <div className="flex items-center">
                             <div className={`w-3 h-3 rounded-full mr-2 ${
-                              item.category === 'Student' ? 'bg-blue-500' :
+                              item.category === 'Students' ? 'bg-blue-500' :
                               item.category === 'Academicians' ? 'bg-green-500' :
                               'bg-purple-500'
                             }`}></div>
                             <h4 className="font-bold text-gray-900 text-base">{item.category}</h4>
                           </div>
-                          {item.category === 'Student' && (
+                          {item.category === 'Students' && (
                             <span className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded">
                               ID Required
                             </span>
                           )}
                         </div>
                         
-                        <p className="text-sm text-gray-600 mb-3">{item.description}</p>
+                        <p className="text-sm text-gray-600 mb-4">{item.description}</p>
                         
-                        <div className="grid grid-cols-2 gap-4">
-                          <div className="text-center bg-white rounded-lg p-3 border border-gray-200">
-                            <div className="font-bold text-gray-900 text-lg">₹{item.inr.toLocaleString('en-IN')}</div>
-                            <div className="text-xs text-gray-500 mt-1">INR</div>
+                        {/* Registration Periods for Mobile */}
+                        <div className="space-y-3">
+                          {/* Registration by 31st Jan 2026 */}
+                          <div className="bg-white rounded-lg p-3 border border-gray-200">
+                            <div className="font-semibold text-gray-700 text-sm mb-2">Registration by 31st Jan 2026</div>
+                            <div className="grid grid-cols-2 gap-3">
+                              <div className="text-center">
+                                <div className="font-bold text-gray-900">₹{item.regBy31Jan.toLocaleString('en-IN')}</div>
+                                <div className="text-xs text-gray-500 mt-1">INR</div>
+                              </div>
+                              <div className="text-center">
+                                <div className="font-bold text-green-700">${calculateUSD(item.regBy31Jan)}</div>
+                                <div className="text-xs text-gray-500 mt-1">USD</div>
+                              </div>
+                            </div>
                           </div>
-                          <div className="text-center bg-white rounded-lg p-3 border border-gray-200">
-                            <div className="font-bold text-green-700 text-lg">${calculateUSD(item.inr)}</div>
-                            <div className="text-xs text-gray-500 mt-1">USD</div>
+                          
+                          {/* Registration by 15th Feb 2026 */}
+                          <div className="bg-white rounded-lg p-3 border border-gray-200">
+                            <div className="font-semibold text-gray-700 text-sm mb-2">Registration by 15th Feb 2026</div>
+                            <div className="grid grid-cols-2 gap-3">
+                              <div className="text-center">
+                                <div className="font-bold text-gray-900">₹{item.regBy15Feb.toLocaleString('en-IN')}</div>
+                                <div className="text-xs text-gray-500 mt-1">INR</div>
+                              </div>
+                              <div className="text-center">
+                                <div className="font-bold text-green-700">${calculateUSD(item.regBy15Feb)}</div>
+                                <div className="text-xs text-gray-500 mt-1">USD</div>
+                              </div>
+                            </div>
+                          </div>
+                          
+                          {/* On-Spot Registration */}
+                          <div className="bg-white rounded-lg p-3 border border-gray-200">
+                            <div className="font-semibold text-gray-700 text-sm mb-2">On-Spot Registration</div>
+                            <div className="grid grid-cols-2 gap-3">
+                              <div className="text-center">
+                                <div className="font-bold text-gray-900">₹{item.onSpot.toLocaleString('en-IN')}</div>
+                                <div className="text-xs text-gray-500 mt-1">INR</div>
+                              </div>
+                              <div className="text-center">
+                                <div className="font-bold text-green-700">${calculateUSD(item.onSpot)}</div>
+                                <div className="text-xs text-gray-500 mt-1">USD</div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -296,7 +381,6 @@ const RegistrationPage = () => {
                         'Student registration requires valid student ID',
                         'Fees include 18% GST as applicable',
                         'Accommodation not included',
-                        'Early bird discounts may apply',
                         'Group registrations available',
                         'Contact organizers for queries'
                       ].map((note, index) => (
